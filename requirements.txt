@@ -1,0 +1,5 @@
+# pip3 install --upgrade -r requirements.txt
+ansible
+boto
+boto3
+configparser

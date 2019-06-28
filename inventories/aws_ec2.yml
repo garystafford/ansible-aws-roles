@@ -1,0 +1,12 @@
+plugin: aws_ec2
+remote_user: ec2-user
+private_key_file: ~/.ssh/my-aws-account-keypair.pem
+regions:
+  - us-east-1
+keyed_groups:
+  - key: tags.Name
+    prefix: tag_Name_
+    separator: ''
+  - key: tags.Group
+    prefix: tag_Group_
+    separator: ''

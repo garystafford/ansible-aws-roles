@@ -1,0 +1,12 @@
+---
+# defaults file for cf
+template_url: 'https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/ansible_cf_demo.json'
+stack_name: 'ansible-cf-demo'
+instance_type:	't2.micro'
+key_name: 'ansible'
+ssh_location:	'72.231.208.107/32'
+aws_region: 'us-east-1'
+subnets: 'subnet-163e2562, subnet-a45e5ae2'
+vpc_id:	'vpc-cb8445ae'
+tag_name: 'Apache Web Server'
+tag_group: 'webservers'

@@ -1,0 +1,40 @@
+---
+- name: Test httpd Ansible role
+  hosts: webservers
+  gather_facts: no
+  become: yes
+
+  vars:
+    hostname: "{{ hostvars[inventory_hostname].name }}"
+
+  tasks:
+  - name: Check if file 'index.html' exists on server
+    stat:
+      path: /var/www/html/index.html
+
+  - name: Check if file 'info.php' exists on server
+    stat:
+      path: /var/www/html/info.php
+
+  - name: Check if http://{{ inventory_hostname }} homepage is accessible
+    uri:
+      url: http://{{ inventory_hostname }}
+      status_code: 200
+    register: result
+    until: result.status == 200
+    retries: 2
+    delay: 10
+
+  - name: Check if http://{{ inventory_hostname }} homepage contains 'Hello Anisble on GCP!' string
+    uri:
+      url: http://{{ inventory_hostname }}
+      return_content: true
+    register: response
+    failed_when: "'Hello Anisble on GCP!' not in response.content"
+
+  - name: Check if http://{{ inventory_hostname }}/server-status contains 'Apache Server Status' string
+    uri:
+      url: http://{{ inventory_hostname }}/server-status
+      return_content: true
+    register: response
+    failed_when: "'Apache Server Status' not in response.content"
