@@ -14,7 +14,7 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
-      - pip3 install --upgrade --quite -r requirements.txt
+      - pip3 install --upgrade -r requirements.txt --quiet
   pre_build:
     commands:
       # - command
