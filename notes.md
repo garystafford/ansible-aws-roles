@@ -43,4 +43,13 @@ aws cloudformation delete-stack --stack-name ansible-cf-demo
 # tag_Group_webservers
 
 ./inventories/ec2.py --refresh-cache
+
+aws ssm get-parameter \
+  --name ansible_private_key
+
+aws ssm put-parameter \
+  --name ansible_private_key \
+  --type String \
+  --value "$(cat ~/.ssh/ansible)" \
+  --overwrite
 ```

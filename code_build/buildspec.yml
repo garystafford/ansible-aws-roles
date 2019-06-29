@@ -25,9 +25,10 @@ phases:
       # - command
   build:
     commands:
-      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/10_cf_config.yml --tags create -vvv
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/10_cf_config.yml --tags create -vvvv
 #      - sleep 300 # total hack to wait for ec2 instances to pass all status checks...
-      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_webserver_config.yml -vvv
+      - ansible-inventory -i inventories/aws_ec2.yml --graph
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_webserver_config.yml -vvvv
   #post_build:
     #commands:
       # - command
