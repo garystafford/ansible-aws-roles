@@ -15,14 +15,15 @@ phases:
       python: 3.7
     commands:
       - pip3 install --upgrade -r requirements.txt --quiet
-  pre_build:
-    commands:
+  #pre_build:
+    #commands:
       # - command
       # - command
   build:
     commands:
-      - ansible-playbook --inventory inventories/aws_ec2.yml site.yml --tags create -vvv
-      # - command
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/10_cf_config.yml --tags create -vvv
+      - sleep 300 # wait for ec2 instances to pass all checks...
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_webserver_config.yml -vvv
   #post_build:
     #commands:
       # - command
