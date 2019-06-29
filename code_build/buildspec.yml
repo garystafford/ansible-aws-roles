@@ -12,6 +12,7 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
+      - env | sort
       - mkdir -p ~/.ssh
       - echo "$ansible_private_key" > ~/.ssh/ansible
       - chmod 600 ~/.ssh/ansible
