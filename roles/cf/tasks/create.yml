@@ -12,7 +12,7 @@
     disable_rollback: true
     template_url: "{{ template_url }}"
     template_parameters:
-      VpcId: "{{vpc_id }}"
+      VpcId: "{{ vpc_id }}"
       Subnets: "{{ subnets }}"
       InstanceType: "{{ instance_type }}"
       KeyName: "{{ key_name }}"
