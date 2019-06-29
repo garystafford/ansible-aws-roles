@@ -1,11 +1,11 @@
 version: 0.2
 
-#env:
+env:
   #variables:
      # key: "value"
      # key: "value"
-  #parameter-store:
-     # key: "value"
+  parameter-store:
+     ansible_private_key: "ansible_private_key"
      # key: "value"
   #git-credential-helper: yes
 
@@ -14,15 +14,18 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
+      - mkdir -p ~/.ssh
+      - echo "$ansible_private_key" > ~/.ssh/ansible
+      - chmod 600 ~/.ssh/ansible
       - pip3 install --upgrade -r requirements.txt --quiet
-  #pre_build:
+      #pre_build:
     #commands:
       # - command
       # - command
   build:
     commands:
       - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/10_cf_config.yml --tags create -vvv
-      - sleep 300 # wait for ec2 instances to pass all checks...
+#      - sleep 300 # total hack to wait for ec2 instances to pass all status checks...
       - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_webserver_config.yml -vvv
   #post_build:
     #commands:
