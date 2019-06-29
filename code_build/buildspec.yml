@@ -16,7 +16,6 @@ phases:
       - mkdir -p ~/.ssh
       - echo "$ansible_private_key" > ~/.ssh/ansible
       - chmod 600 ~/.ssh/ansible
-#      - ssh-add ~/.ssh/ansible
       - ls -alh ~/.ssh
       - pip3 install --upgrade -r requirements.txt #--quiet
   #pre_build:
@@ -25,10 +24,10 @@ phases:
       # - command
   build:
     commands:
-      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/10_cf_config.yml --tags create -vvvv
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/10_cf_config.yml --tags create -vvv
       # - sleep 300 # total hack to wait for ec2 instances to pass all status checks...
       - ansible-inventory -i inventories/aws_ec2.yml --graph
-      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_webserver_config.yml -vvvv
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_webserver_config.yml -vvv
   #post_build:
     #commands:
       # - command

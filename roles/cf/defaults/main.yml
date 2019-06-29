@@ -4,7 +4,7 @@ template_url: 'https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/ansi
 stack_name: 'ansible-cf-demo'
 instance_type:	't2.micro'
 key_name: 'ansible'
-ssh_location:	'72.231.208.107/32'
+ssh_location: '0.0.0.0/0'
 aws_region: 'us-east-1'
 subnets: 'subnet-163e2562, subnet-a45e5ae2'
 vpc_id:	'vpc-cb8445ae'
