@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-     ssh_location: "0.0.0.0/0"
+     TAG_ENV: "test"
   parameter-store:
      ansible_private_key: "ansible_private_key"
   #git-credential-helper: yes
@@ -25,7 +25,7 @@ phases:
   build:
     commands:
       - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/10_cf_config.yml --tags create -vvv
-      # - sleep 300 # total hack to wait for ec2 instances to pass all status checks...
+      - sleep 300 # total hack to wait for ec2 instances to pass all status checks...
       - ansible-inventory -i inventories/aws_ec2.yml --graph
       - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_webserver_config.yml -vvv
   #post_build:

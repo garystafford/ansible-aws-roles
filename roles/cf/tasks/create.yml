@@ -19,6 +19,7 @@
       SSHLocation: "{{ ssh_location }}"
       TagName: "{{ tag_name }}"
       TagGroup: "{{ tag_group }}"
+      TagEnv: "{{ lookup('env','TAG_ENV') }}"
     tags:
       Stack: "{{ stack_name }}"
 
