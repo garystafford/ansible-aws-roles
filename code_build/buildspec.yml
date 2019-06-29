@@ -14,14 +14,14 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
-      - pip3 install --upgrade -r requirements.txt
+      - pip3 install --upgrade --quite -r requirements.txt
   pre_build:
     commands:
       # - command
       # - command
   build:
     commands:
-      - ansible-playbook --inventory inventories/aws_ec2.yml site.yml --tags create -vv
+      - ansible-playbook --inventory inventories/aws_ec2.yml site.yml --tags create -vvv
       # - command
   #post_build:
     #commands:
