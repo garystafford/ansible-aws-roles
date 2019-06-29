@@ -17,7 +17,7 @@ phases:
       - chmod 600 ~/.ssh/ansible
 #      - ssh-add ~/.ssh/ansible
       - ls -alh ~/.ssh
-      - pip3 install --upgrade -r requirements.txt --quiet
+      - pip3 install --upgrade -r requirements.txt #--quiet
   #pre_build:
     #commands:
       # - command
