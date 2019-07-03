@@ -16,8 +16,8 @@ phases:
       - echo "$ansible_private_key" > ~/.ssh/ansible
       - chmod 600 ~/.ssh/ansible
       - ls -alh ~/.ssh
-      - pip3 install --upgrade -r requirements.txt #--quiet
+      - pip install --upgrade -r requirements.txt
   build:
     commands:
       - ansible-inventory -i inventories/aws_ec2.yml --graph
-      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_webserver_config.yml -vvv
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/30_webserver_config.yml -vvv
