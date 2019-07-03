@@ -10,3 +10,10 @@ keyed_groups:
   - key: tags.Group
     prefix: tag_Group_
     separator: ''
+hostnames:
+  - dns-name
+  - ip-address
+  - private-dns-name
+  - private-ip-address
+compose:
+  ansible_host: ip_address

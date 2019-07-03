@@ -1,0 +1,22 @@
+version: 0.2
+
+env:
+  variables:
+    TAG_ENV: "test"
+  parameter-store:
+    ansible_private_key: "ansible_private_key"
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+#      - env | sort
+#      - mkdir -p ~/.ssh
+#      - echo "$ansible_private_key" > ~/.ssh/ansible
+#      - chmod 600 ~/.ssh/ansible
+#      - ls -alh ~/.ssh
+      - pip3 install --upgrade -r requirements.txt #--quiet
+  build:
+    commands:
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/10_cf_config.yml --tags create -vvv
