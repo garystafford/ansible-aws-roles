@@ -1,6 +1,6 @@
 ---
 # defaults file for cf
-template_url: 'https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/vpc_network_cf_demo.yml'
+template_url: 'https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/cf_demo_compute.json'
 stack_name: 'ansible-cf-demo-network'
 
 environment_name: 'test'
