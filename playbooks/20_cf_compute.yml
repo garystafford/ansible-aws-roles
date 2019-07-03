@@ -1,0 +1,8 @@
+---
+- name: Provision EC2-based Apache Web Servers
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  roles:
+    - role: cf_compute

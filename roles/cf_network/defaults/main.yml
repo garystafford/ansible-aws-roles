@@ -1,0 +1,11 @@
+---
+# defaults file for cf
+template_url: 'https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/vpc_network_cf_demo.yml'
+stack_name: 'ansible-cf-demo-network'
+
+environment_name: 'test'
+vpc_cidr: '10.0.0.0/24'
+public_subnet_1_cidr: '10.0.0.0/28'
+public_subnet_2_cidr: '10.0.0.16/28'
+private_subnet_1_cidr: '10.0.0.32/28'
+private_subnet_2_cidr: '10.0.0.48/28'

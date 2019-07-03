@@ -1,3 +1,4 @@
 ---
-- import_playbook: playbooks/10_cf_config.yml
-- import_playbook: playbooks/20_webserver_config.yml
+- import_playbook: playbooks/10_cf_network.yml
+- import_playbook: playbooks/20_cf_compute.yml
+- import_playbook: playbooks/30_webserver_config.yml
