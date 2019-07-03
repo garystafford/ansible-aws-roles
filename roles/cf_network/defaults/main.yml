@@ -2,6 +2,7 @@
 # defaults file for cf
 template_url: 'https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/cf_demo_network.yml'
 stack_name: 'ansible-cf-demo-network'
+aws_region: 'us-east-1'
 
 environment_name: 'test'
 vpc_cidr: '10.0.0.0/24'
