@@ -1,7 +1,5 @@
 ---
 # tasks file for cf
-
-# https://docs.ansible.com/ansible/latest/modules/cloudformation_module.html
 - name: delete a stack
   cloudformation:
     stack_name: "{{ stack_name }}"
