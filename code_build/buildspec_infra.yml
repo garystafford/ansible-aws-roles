@@ -1,8 +1,5 @@
 version: 0.2
 
-env:
-  variables:
-    TAG_ENV: "test"
 phases:
   install:
     runtime-versions:
