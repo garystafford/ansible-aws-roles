@@ -14,7 +14,7 @@
   vars:
     network_output: "{{ cf_network_stack_facts.ansible_facts.cloudformation['ansible-cf-demo-network'].stack_outputs }}"
   debug:
-    msg: "{{ network_output.PublicSubnet1,network_output.PublicSubnet1 }}"
+    msg: "{{ network_output.VPC }}"
 
 - name: create a stack, pass in the template via an URL
   vars:
