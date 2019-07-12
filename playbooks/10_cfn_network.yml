@@ -5,4 +5,4 @@
   gather_facts: false
 
   roles:
-    - role: cf_network
+    - role: cfn_network

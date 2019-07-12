@@ -1,5 +1,5 @@
-CloudFormation Web Server Role
-==============================
+CloudFormation Web Server Compute Role
+======================================
 
 A brief description of the role goes here.
 

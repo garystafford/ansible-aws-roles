@@ -9,13 +9,15 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
-      - env | sort
+      #- pip install --upgrade pip
+      - pip install --upgrade -r requirements.txt -q
+      #- pip list
       - mkdir -p ~/.ssh
       - echo "$ANSIBLE_PRIVATE_KEY" > ~/.ssh/ansible
-      - cat ~/.ssh/ansible
       - chmod 600 ~/.ssh/ansible
-      - ls -alh ~/.ssh
-      - pip install --upgrade -r requirements.txt -q
+      #- env | sort
+      #- cat ~/.ssh/ansible
+      #- ls -alh ~/.ssh
   build:
     commands:
       - ansible-inventory -i inventories/aws_ec2.yml --graph
