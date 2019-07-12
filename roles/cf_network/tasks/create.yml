@@ -1,15 +1,10 @@
 ---
-# tasks file for cf
-
-# https://docs.ansible.com/ansible/latest/modules/cloudformation_module.html
-# Create a stack, pass in template from a URL, disable rollback if stack creation fails,
-# pass in some parameters to the template, provide tags for resources created
 - name: create a stack, pass in the template via an URL
   cloudformation:
     stack_name: "{{ stack_name }}"
     state: present
     region: "{{ aws_region }}"
-    disable_rollback: true
+    disable_rollback: false
     template_url: "{{ template_url }}"
     template_parameters:
       EnvironmentName: "{{ environment_name }}"

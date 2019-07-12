@@ -1,5 +1,5 @@
-CloudFormation Web Server Role
-==============================
+CloudFormation Network Role
+===========================
 
 A brief description of the role goes here.
 

@@ -1,20 +1,9 @@
 ---
-# tasks file for cf
-
-# https://docs.ansible.com/ansible/latest/modules/cloudformation_module.html
-# Create a stack, pass in template from a URL, disable rollback if stack creation fails,
-# pass in some parameters to the template, provide tags for resources created
 - name: get facts about the newly created CF Stack
   cloudformation_facts:
     stack_name: "ansible-cf-demo-network"
     region: "{{ aws_region }}"
   register: cf_network_stack_facts
-
-- name: var test
-  vars:
-    network_output: "{{ cf_network_stack_facts.ansible_facts.cloudformation['ansible-cf-demo-network'].stack_outputs }}"
-  debug:
-    msg: "{{ network_output.VPC }}"
 
 - name: create a stack, pass in the template via an URL
   vars:
@@ -23,7 +12,7 @@
     stack_name: "{{ stack_name }}"
     state: present
     region: "{{ aws_region }}"
-    disable_rollback: true
+    disable_rollback: false
     template_url: "{{ template_url }}"
     template_parameters:
       VpcId: "{{ network_output.VPC }}"
@@ -36,43 +25,3 @@
       TagEnv: "{{ lookup('env','TAG_ENV') }}"
     tags:
       Stack: "{{ stack_name }}"
-
-- name: get facts about the newly created CF Stack
-  cloudformation_facts:
-    stack_name: "{{ stack_name }}"
-    region: "{{ aws_region }}"
-  register: cf_compute_stack_facts
-
-# - name: Get facts about the newly created instances
-#   ec2_instance_facts:
-#     region: "{{ aws_region }}"
-#     filters:
-#       instance-state-name: running
-#       "tag:aws:cloudformation:stack-name": "{{ stack_name }}"
-#   register: ec2_facts
-#
-# - name: Get facts about the newly created AWS ALB
-#   elb_application_lb_facts:
-#     region: "{{ aws_region }}"
-#     # filters:
-#     #   "tag:aws:cloudformation:stack-name": "{{ stack_name }}"
-#   register: lb_facts
-#
-# - name: Wait for ssh to come up
-#   wait_for: host="{{ item.public_dns_name }}" port=22 delay=10  timeout=300
-#   with_items: "{{ ec2_facts.instances }}"
-#
-# - name: Wait for ALB to come up
-#   wait_for: host="{{ item.dns_name }}" port=80 delay=10  timeout=300
-#   with_items: "{{ lb_facts.load_balancers }}"
-#
-#- name: Check if path to URL is correct
-#  debug:
-#    msg: "{{ cf_stack_facts['ansible_facts']['cloudformation']['ansible-cf-demo']['stack_description']['outputs'][0]['output_value'] }}"
-#
-#- name: Wait for ALB to come up
-#  wait_for:
-#    host: "{{ cf_stack_facts['ansible_facts']['cloudformation']['ansible-cf-demo']['stack_description']['outputs'][0]['output_value'] }}"
-#    port: 80
-#    delay: 60
-#    timeout: 300

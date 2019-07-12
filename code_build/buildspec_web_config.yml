@@ -18,4 +18,4 @@ phases:
   build:
     commands:
       - ansible-inventory -i inventories/aws_ec2.yml --graph
-      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/30_webserver_config.yml -vvv
+      - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/30_web_config.yml -vvv
