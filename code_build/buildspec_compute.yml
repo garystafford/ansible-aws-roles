@@ -4,18 +4,18 @@ env:
   variables:
     TAG_ENV: "test"
   parameter-store:
-    ansible_private_key: "ansible_private_key"
+    ANSIBLE_PRIVATE_KEY: "/anisble_demo/ansible_private_key"
 
 phases:
   install:
     runtime-versions:
       python: 3.7
     commands:
-      - env | sort
-      - mkdir -p ~/.ssh
-      - echo "$ansible_private_key" > ~/.ssh/ansible
-      - chmod 600 ~/.ssh/ansible
-      - ls -alh ~/.ssh
+#      - env | sort
+#      - mkdir -p ~/.ssh
+#      - echo ${ANSIBLE_PRIVATE_KEY} > ~/.ssh/ansible
+#      - chmod 600 ~/.ssh/ansible
+#      - ls -alh ~/.ssh
       - pip install --upgrade -r requirements.txt
   build:
     commands:

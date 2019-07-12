@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   parameter-store:
-    ansible_private_key: "ansible_private_key"
+    ANSIBLE_PRIVATE_KEY: "/anisble_demo/ansible_private_key"
 
 phases:
   install:
@@ -11,7 +11,7 @@ phases:
     commands:
       - env | sort
       - mkdir -p ~/.ssh
-      - echo "$ansible_private_key" > ~/.ssh/ansible
+      - echo ${ANSIBLE_PRIVATE_KEY} > ~/.ssh/ansible
       - chmod 600 ~/.ssh/ansible
       - ls -alh ~/.ssh
       - pip install --upgrade -r requirements.txt
