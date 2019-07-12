@@ -3,8 +3,8 @@ version: 0.2
 env:
   variables:
     TAG_ENV: "test"
-  parameter-store:
-    ANSIBLE_PRIVATE_KEY: "/anisble_demo/ansible_private_key"
+#  parameter-store:
+#    ANSIBLE_PRIVATE_KEY: "/anisble_demo/ansible_private_key"
 
 phases:
   install:
@@ -16,7 +16,7 @@ phases:
 #      - echo ${ANSIBLE_PRIVATE_KEY} > ~/.ssh/ansible
 #      - chmod 600 ~/.ssh/ansible
 #      - ls -alh ~/.ssh
-      - pip install --upgrade -r requirements.txt
+      - pip install --upgrade -r requirements.txt -q
   build:
     commands:
       - ansible-playbook --inventory inventories/aws_ec2.yml playbooks/20_cf_compute.yml --tags create -vvv

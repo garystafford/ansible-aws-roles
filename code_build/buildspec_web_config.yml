@@ -12,9 +12,10 @@ phases:
       - env | sort
       - mkdir -p ~/.ssh
       - echo ${ANSIBLE_PRIVATE_KEY} > ~/.ssh/ansible
+      - cat ~/.ssh/ansible
       - chmod 600 ~/.ssh/ansible
       - ls -alh ~/.ssh
-      - pip install --upgrade -r requirements.txt
+      - pip install --upgrade -r requirements.txt -q
   build:
     commands:
       - ansible-inventory -i inventories/aws_ec2.yml --graph
