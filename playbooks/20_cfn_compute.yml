@@ -1,5 +1,5 @@
 ---
-- name: Provision EC2-based Apache Web Servers
+- name: Provision EC2 instances in an ASG with a load balancer
   hosts: localhost
   connection: local
   gather_facts: false
