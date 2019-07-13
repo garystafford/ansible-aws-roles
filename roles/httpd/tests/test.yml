@@ -1,7 +1,7 @@
 ---
 - name: Test httpd Ansible role
   hosts: localhost
-  gather_facts: no
+  gather_facts: yes
 
   vars:
     hostname: "{{ hostvars[inventory_hostname].name }}"
@@ -37,15 +37,3 @@
       return_content: true
     register: response
     failed_when: "'Apache Server Status' not in response.content"
-
-- name: create a stack, pass in the template via an URL
-  vars:
-    compute_output: "{{ cfn_compute_stack_facts.ansible_facts.cloudformation['ansible-cfn-demo-compute'].stack_outputs }}"
-  tasks:
-  - name: Check if http://{{ compute_output['URL'] }} homepage contains 'Hello Anisble on AWS!' string
-    uri:
-      url: http://{{ compute_output['URL'] }}
-      return_content: true
-    register: response
-    failed_when: "'Hello Anisble on AWS!' not in response.content"
-
