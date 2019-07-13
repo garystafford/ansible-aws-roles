@@ -1,12 +1,12 @@
 ---
-- name: get facts about the cfn network stack
-  cloudformation_facts:
-    stack_name: "ansible-cfn-demo-network"
-  register: cfn_network_stack_facts
-
-- name: show the cfn network stack outputs
-  debug:
-    msg: "{{ cfn_network_stack_facts }}"
+#- name: get facts about the cfn network stack
+#  cloudformation_facts:
+#    stack_name: "ansible-cfn-demo-network"
+#  register: cfn_network_stack_facts
+#
+#- name: show the cfn network stack outputs
+#  debug:
+#    msg: "{{ cfn_network_stack_facts }}"
 
 - name: get facts about the cfn compute stack
   cloudformation_facts:
