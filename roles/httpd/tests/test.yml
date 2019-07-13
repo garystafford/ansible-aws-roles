@@ -2,8 +2,6 @@
 - name: Test httpd Ansible role
   hosts: tag_Group_webservers
   gather_facts: yes
-  roles:
-    - httpd
 
   vars:
     hostname: "{{ hostvars[inventory_hostname].name }}"
