@@ -52,4 +52,7 @@ aws ssm put-parameter \
   --type String \
   --value "$(cat ~/.ssh/ansible)" \
   --overwrite
+
+aws codebuild list-projects
+aws codebuild start-build --project-name ansible-test
 ```
