@@ -6,4 +6,4 @@
   tasks:
   - name: List 'stack_outputs' from cached facts
     debug:
-      msg: "{{ cloudformation['ansible-cfn-demo-network'].stack_outputs['VPC'] }}"
+      msg: "{{ cloudformation['ansible-cfn-demo-network'].stack_outputs }}"
