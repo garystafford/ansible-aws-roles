@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - pip install -r requirements.txt -q
+  build:
+    commands:
+      - ansible-playbook -i inventories/aws_ec2.yml roles/test_alb_webservers/tests/test.yml
