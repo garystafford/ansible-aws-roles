@@ -13,6 +13,9 @@ phases:
       - mkdir -p ~/.ssh
       - echo "$ANSIBLE_PRIVATE_KEY" > ~/.ssh/ansible
       - chmod 600 ~/.ssh/ansible
+  pre_build:
+    commands:
+      - ansible-playbook -i inventories/aws_ec2.yml roles/cfn_compute/tests/test.yml
   build:
     commands:
       - ansible-inventory -i inventories/aws_ec2.yml --graph

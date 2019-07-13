@@ -18,6 +18,3 @@ phases:
   build:
     commands:
       - ansible-playbook -i inventories/aws_ec2.yml playbooks/20_cfn_compute.yml --tags create -vvv
-  post_build:
-    commands:
-      - ansible-playbook -i inventories/aws_ec2.yml roles/cfn_compute/tests/test.yml
