@@ -1,3 +1,2 @@
 ---
-greeting: 'Hello Anisble on AWS!'
-#greeting: 'Hello Anisble on Amazon Web Services!'
+greeting: 'Hello Ansible on AWS!'

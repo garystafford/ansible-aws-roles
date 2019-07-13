@@ -1,6 +1,6 @@
 ---
 - name: Test httpd Ansible role
-  hosts: localhost
+  hosts: tag_Group_webservers
   gather_facts: yes
 
   vars:
@@ -24,12 +24,12 @@
     retries: 2
     delay: 10
 
-  - name: Check if http://{{ inventory_hostname }} homepage contains 'Hello Anisble on AWS!' string
+  - name: Check if http://{{ inventory_hostname }} homepage contains 'Hello Ansible on AWS!' string
     uri:
       url: http://{{ inventory_hostname }}
       return_content: true
     register: response
-    failed_when: "'Hello Anisble on AWS!' not in response.content"
+    failed_when: "'Hello Ansible on AWS!' not in response.content"
 
   - name: Check if http://{{ inventory_hostname }}/server-status contains 'Apache Server Status' string
     uri:
