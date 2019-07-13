@@ -2,9 +2,9 @@
 - name: Test cf Ansible role
   gather_facts: no
   hosts: localhost
-  roles:
-    - role: cfn_network
-      tags: create
+#  roles:
+#    - role: cfn_network
+#      tags: create
   tasks:
   - name: List 'stack_outputs' from cached facts
     debug:
