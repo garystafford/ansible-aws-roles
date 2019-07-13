@@ -11,4 +11,4 @@ phases:
       - ansible-playbook -i inventories/aws_ec2.yml playbooks/10_cfn_network.yml --tags create -vvv
   post_build:
     commands:
-      - ansible-playbook -i inventories/aws_ec2.yml roles/cfn_network/tests/test.yml
+      - ansible-playbook -i inventories/aws_ec2.yml roles/cfn_network/tests/test.yml --tags create

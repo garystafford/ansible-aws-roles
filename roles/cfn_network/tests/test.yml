@@ -4,8 +4,8 @@
   hosts: localhost
   roles:
     - cfn_network
-  tags: [ create ]
-
+  tags:
+    - create
   tasks:
   - name: List 'stack_outputs' from cached facts
     debug:
