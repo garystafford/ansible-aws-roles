@@ -15,3 +15,9 @@
       PrivateSubnet2CIDR: "{{ private_subnet_2_cidr }}"
     tags:
       Stack: "{{ stack_name }}"
+
+- name: get facts about the new stack
+  cloudformation_facts:
+    stack_name: "ansible-cfn-demo-network"
+    region: "{{ aws_region }}"
+  register: cfn_network_stack_facts
