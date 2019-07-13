@@ -11,7 +11,7 @@ phases:
     runtime-versions:
       python: 3.7
     commands:
-      - pip install --upgrade -r requirements.txt -q
+      - pip install -r requirements.txt -q
       - mkdir -p ~/.ssh
       - echo "$ANSIBLE_PRIVATE_KEY" > ~/.ssh/ansible
       - chmod 600 ~/.ssh/ansible
