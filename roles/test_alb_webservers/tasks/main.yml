@@ -6,7 +6,7 @@
 
 - name: show the cfn network stack outputs
   debug:
-    msg: "{{ cfn_network_stack_facts.stack_outputs }}"
+    msg: "{{ cfn_network_stack_facts }}"
 
 - name: get facts about the cfn compute stack
   cloudformation_facts:
@@ -15,4 +15,4 @@
 
 - name: show the cfn compute stack outputs
   debug:
-    msg: "{{ cfn_compute_stack_facts.stack_outputs }}"
+    msg: "{{ cfn_compute_stack_facts }}"
