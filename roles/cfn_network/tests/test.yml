@@ -1,33 +1,9 @@
 ---
 - name: Test cf Ansible role
-  gather_facts: yes
+  gather_facts: no
+  hosts: localhost
 
   tasks:
-  - name: List all ansible facts
+  - name: List 'stack_outputs' from cached facts
     debug:
-      msg: "{{ ansible_facts }}"
-
-  - name: Check if timezone is UTC
-    debug:
-      msg: Timezone is UTC
-    failed_when: ansible_facts['date_time']['tz'] != 'UTC'
-
-  - name: Check if processor vCPUs count is 1
-    debug:
-      msg: Processor vCPUs count is 1
-    failed_when: ansible_facts['processor_vcpus'] != 1
-
-  - name: Check if distribution is CentOS
-    debug:
-      msg: Distribution is CentOS
-    failed_when: ansible_facts['distribution'] != 'CentOS'
-
-  - name: Check if distribution major version is 7
-    debug:
-      msg: Distribution major version is 7
-    failed_when: ansible_facts['distribution_major_version'] != '7'
-
-  - name: Check if hostname contains 'web-'
-    debug:
-      msg: Hostname contains 'web-'
-    failed_when: "'web-' not in ansible_facts['hostname']"
+      msg: "{{ cloudformation['ansible-cfn-demo-network'].stack_outputs['VPC'] }}"

@@ -1,6 +1,6 @@
 ---
 - name: Test httpd Ansible role
-  hosts: webservers
+  hosts: tag_Group_webservers
   gather_facts: no
   become: yes
 
@@ -30,7 +30,7 @@
       url: http://{{ inventory_hostname }}
       return_content: true
     register: response
-    failed_when: "'Hello Anisble on GCP!' not in response.content"
+    failed_when: "'Hello Anisble on AWS!' not in response.content"
 
   - name: Check if http://{{ inventory_hostname }}/server-status contains 'Apache Server Status' string
     uri:

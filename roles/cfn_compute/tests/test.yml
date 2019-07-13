@@ -1,13 +1,14 @@
 ---
 - name: Test cfn_compute Ansible role
+  gather_facts: no
   hosts: tag_Group_webservers
-  gather_facts: yes
 
-  tasks:
+  pre_tasks:
   - name: List all ansible facts
     debug:
       msg: "{{ ansible_facts }}"
 
+  tasks:
   - name: Check if EC2 instance's timezone is set to 'UTC'
     debug:
       msg: Timezone is UTC
