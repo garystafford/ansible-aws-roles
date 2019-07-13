@@ -1,6 +1,6 @@
 ---
 - name: Test cfn_compute Ansible role
-  gather_facts: no
+  gather_facts: yes
   hosts: tag_Group_webservers
 
   pre_tasks:
