@@ -35,3 +35,9 @@
   service:
     name: httpd
     state: started
+
+- name: get facts about the cfn compute stack
+  cloudformation_facts:
+    stack_name: "ansible-cfn-demo-compute"
+  register: cfn_compute_stack_facts
+

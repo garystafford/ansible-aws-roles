@@ -1,8 +1,7 @@
 ---
 - name: Test httpd Ansible role
-  hosts: tag_Group_webservers
-  gather_facts: yes
-  become: yes
+  hosts: localhost
+  gather_facts: no
 
   vars:
     hostname: "{{ hostvars[inventory_hostname].name }}"
@@ -38,11 +37,6 @@
       return_content: true
     register: response
     failed_when: "'Apache Server Status' not in response.content"
-
-- name: get facts about the cfn compute stack
-  cloudformation_facts:
-    stack_name: "ansible-cfn-demo-compute"
-  register: cfn_compute_stack_facts
 
 - name: create a stack, pass in the template via an URL
   vars:
