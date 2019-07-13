@@ -6,7 +6,7 @@
     - test
 
   vars:
-    alb_url: "{{ cfn_compute_stack_facts.ansible_facts.cloudformation['ansible-cfn-demo-compute'].stack_outputs['URL'] }}"
+    alb_url: "{{ cloudformation['ansible-cfn-demo-compute'].stack_outputs['URL'] }}"
 
   tasks:
   - name: Check if homepage is accessible via the ALB DNS address

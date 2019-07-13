@@ -6,4 +6,4 @@
 
 - name: show the cfn compute stack outputs
   debug:
-    msg: "{{ cfn_compute_stack_facts.ansible_facts.cloudformation['ansible-cfn-demo-compute'].stack_outputs }}"
+    msg: "{{ cloudformation['ansible-cfn-demo-compute'].stack_outputs }}"

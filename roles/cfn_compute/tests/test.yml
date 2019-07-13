@@ -4,6 +4,7 @@
   hosts: tag_Group_webservers
   roles:
     - cfn_compute
+  tags: [ create ]
 
   pre_tasks:
   - name: List all ansible facts
