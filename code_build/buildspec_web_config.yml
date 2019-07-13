@@ -16,7 +16,7 @@ phases:
   pre_build:
     commands:
       - ansible-inventory -i inventories/aws_ec2.yml --graph
-      - ansible-playbook -i inventories/aws_ec2.yml roles/cfn_compute/tests/test.yml
+      - ansible-playbook -i inventories/aws_ec2.yml roles/cfn_compute/tests/test.yml --tags create
   build:
     commands:
       - ansible-playbook -i inventories/aws_ec2.yml playbooks/30_web_config.yml -vvv
