@@ -2,10 +2,9 @@
 - name: Test cfn_compute Ansible role
   gather_facts: yes
   hosts: tag_Group_webservers
-  roles:
-    - cfn_compute
-  tags:
-    - create
+#  roles:
+#    - role: cfn_copute
+#      tags: create
 
   pre_tasks:
   - name: List all ansible facts
