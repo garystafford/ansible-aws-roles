@@ -1,0 +1,9 @@
+---
+- name: get facts about the cfn compute stack
+  cloudformation_facts:
+    stack_name: "ansible-cfn-demo-compute"
+  register: cfn_compute_stack_facts
+
+- name: show the cfn compute stack outputs
+  debug:
+    msg: "{{ cfn_compute_stack_facts.ansible_facts.cloudformation['ansible-cfn-demo-compute'].stack_outputs }}"

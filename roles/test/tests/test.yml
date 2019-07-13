@@ -1,0 +1,33 @@
+---
+- name: Test web server via ALB URL
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - test
+
+  vars:
+    alb_url: "{{ cfn_compute_stack_facts.ansible_facts.cloudformation['ansible-cfn-demo-compute'].stack_outputs['URL'] }}"
+
+  tasks:
+  - name: Check if homepage is accessible via the ALB DNS address
+    uri:
+      url: "{{ alb_url }}"
+      status_code: 200
+    register: result
+    until: result.status == 200
+    retries: 2
+    delay: 5
+
+  - name: Check if homepage contains 'Hello Ansible on AWS!' string
+    uri:
+      url: "{{ alb_url }}"
+      return_content: true
+    register: response
+    failed_when: "'Hello Ansible on AWS!' not in response.content"
+
+  - name: Check if /server-status page contains 'Apache Server Status' string
+    uri:
+      url: "{{ alb_url  }}/server-status"
+      return_content: true
+    register: response
+    failed_when: "'Apache Server Status' not in response.content"
