@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   roles:
-    - test
+    - test_alb_webservers
 
   vars:
     alb_url: "{{ cloudformation['ansible-cfn-demo-compute'].stack_outputs['URL'] }}"
