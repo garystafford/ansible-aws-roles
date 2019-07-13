@@ -8,4 +8,7 @@ phases:
       - pip install -r requirements.txt -q
   build:
     commands:
+      - ansible-playbook -i inventories/aws_ec2.yml playbooks/40_tests.yml
+  post_build:
+    commands:
       - ansible-playbook -i inventories/aws_ec2.yml roles/test_alb_webservers/tests/test.yml
