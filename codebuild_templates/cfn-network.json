@@ -8,7 +8,7 @@
         "gitSubmodulesConfig": {
             "fetchSubmodules": false
         },
-        "buildspec": "code_build/buildspec_network.yml",
+        "buildspec": "buildspec_files/buildspec_network.yml",
         "insecureSsl": false
     },
     "secondarySources": [],
