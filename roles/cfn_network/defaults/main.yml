@@ -1,10 +1,5 @@
 ---
-# defaults file for cf
-template_url: 'https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/network-stack.template'
-stack_name: 'ansible-cfn-demo-network'
 aws_region: 'us-east-1'
-
-environment_name: 'ansible-cfn-demo'
 vpc_cidr: '10.0.0.0/24'
 public_subnet_1_cidr: '10.0.0.0/28'
 public_subnet_2_cidr: '10.0.0.16/28'

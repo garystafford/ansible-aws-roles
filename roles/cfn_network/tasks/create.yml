@@ -7,7 +7,7 @@
     disable_rollback: false
     template_url: "{{ template_url }}"
     template_parameters:
-      EnvironmentName: "{{ environment_name }}"
+      EnvironmentName: "{{ lookup('env','ENVIRONMENT_NAME') }}"
       VpcCIDR: "{{ vpc_cidr }}"
       PublicSubnet1CIDR: "{{ public_subnet_1_cidr }}"
       PublicSubnet2CIDR: "{{ public_subnet_2_cidr }}"

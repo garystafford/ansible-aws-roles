@@ -1,9 +1,5 @@
 ---
-# defaults file for cf
-template_url: 'https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/compute-stack.template'
-stack_name: 'ansible-cfn-demo-compute'
 aws_region: 'us-east-1'
-
 instance_type: 't2.micro'
 key_name: 'ansible'
 ssh_location: '0.0.0.0/0'

@@ -1,5 +1,11 @@
 version: 0.2
 
+env:
+  variables:
+    TEMPLATE_URL: "https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/network-stack.template"
+    STACK_NAME: "ansible-cfn-demo-network"
+    ENVIRONMENT_NAME: "ansible-cfn-demo"
+
 phases:
   install:
     runtime-versions:
