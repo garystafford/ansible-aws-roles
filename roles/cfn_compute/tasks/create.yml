@@ -6,7 +6,7 @@
 
 - name: create a stack, pass in the template via an URL
   vars:
-    network_output: "{{ cfn_network_stack_facts.ansible_facts.cloudformation.ansible-cfn-demo-network.stack_outputs }}"
+    network_output: "{{ cfn_network_stack_facts.ansible_facts.cloudformation['ansible-cfn-demo-network'].stack_outputs }}"
   cloudformation:
     stack_name: "{{ stack_name }}"
     state: present
