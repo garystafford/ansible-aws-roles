@@ -69,4 +69,13 @@ aws codebuild start-build --project-name cfn-network
 aws codebuild start-build --project-name cfn-compute
 aws codebuild start-build --project-name ansible-web-config
 aws codebuild start-build --project-name ansible-test
+
+time ansible-playbook \
+  -i inventories/aws_ec2.yml \
+  playbooks/20_cfn_compute.yml -t delete -v
+
+time ansible-playbook \
+  -i inventories/aws_ec2.yml \
+  playbooks/10_cfn_network.yml -t delete -v
+
 ```
