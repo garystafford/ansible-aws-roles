@@ -64,6 +64,7 @@ aws ssm put-parameter \
   --overwrite
 
 aws codebuild list-projects
+aws codebuild start-build --project-name cfn-validate-s3
 aws codebuild start-build --project-name cfn-network
 aws codebuild start-build --project-name cfn-compute
 aws codebuild start-build --project-name ansible-web-config
