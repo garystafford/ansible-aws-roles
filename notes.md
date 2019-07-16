@@ -63,4 +63,9 @@ aws ssm put-parameter \
   --description "S3 location of cfn templates" \
   --overwrite
 
+aws codebuild list-projects
+aws codebuild start-build --project-name cfn-network
+aws codebuild start-build --project-name cfn-compute
+aws codebuild start-build --project-name ansible-web-config
+aws codebuild start-build --project-name ansible-test
 ```
