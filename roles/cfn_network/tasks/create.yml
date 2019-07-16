@@ -5,7 +5,7 @@
     state: present
     region: "{{ aws_region }}"
     disable_rollback: false
-    template_url: "{{ template_url }}"
+    template_url: "{{ lookup('env','TEMPLATE_URL') }}"
     template_parameters:
       EnvironmentName: "{{ lookup('env','ENVIRONMENT_NAME') }}"
       VpcCIDR: "{{ vpc_cidr }}"

@@ -1,4 +1,5 @@
 ---
+stack_name: 'ansible-cfn-demo-network'
 aws_region: 'us-east-1'
 vpc_cidr: '10.0.0.0/24'
 public_subnet_1_cidr: '10.0.0.0/28'
