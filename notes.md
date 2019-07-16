@@ -43,13 +43,24 @@ aws cloudformation delete-stack --stack-name ansible-cf-demo
 # tag_Group_webservers
 
 ./inventories/ec2.py --refresh-cache
+ 
+aws ssm put-parameter \
+  --name /ansible_demo/ansible_private_key \
+  --type SecureString \
+  --value file:///Users/garystafford/.ssh/ansible \
+  --description "Private key for EC2 instances" \
+  --overwrite
 
 aws ssm get-parameter \
-  --name ansible_private_key
+  --with-decryption \
+  --name "/ansible_demo/ansible_private_key" \
+  --query Parameter.Value
 
 aws ssm put-parameter \
-  --name ansible_private_key \
+  --name /ansible_demo/template_bucket \
   --type String \
-  --value "$(cat ~/.ssh/ansible)" \
+  --value "gaystafford_cloud_formation/cf_demo/" \
+  --description "S3 location of cfn templates" \
   --overwrite
+
 ```

@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   parameter-store:
-    ANSIBLE_PRIVATE_KEY: "/anisble_demo/ansible_private_key"
+    ANSIBLE_PRIVATE_KEY: "/ansible_demo/ansible_private_key"
 
 phases:
   install:

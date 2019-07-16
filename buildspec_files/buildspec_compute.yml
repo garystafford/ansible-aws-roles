@@ -6,7 +6,7 @@ env:
     STACK_NAME: "ansible-cfn-demo-compute"
     ENVIRONMENT_NAME: "ansible-cfn-demo"
 #  parameter-store:
-#    ANSIBLE_PRIVATE_KEY: "/anisble_demo/ansible_private_key"
+#    ANSIBLE_PRIVATE_KEY: "/ansible_demo/ansible_private_key"
 
 phases:
   install:
