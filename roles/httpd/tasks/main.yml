@@ -13,6 +13,7 @@
       - httpd
       - httpd-tools
       - php
+      - awslogs
 
 - name: deploy apache config file
   template:
@@ -34,4 +35,15 @@
 - name: ensure apache is running
   service:
     name: httpd
+    state: started
+
+- name: enable service awslogsd and ensure it is not masked
+  systemd:
+    name: awslogsd
+    enabled: yes
+    masked: no
+
+- name: ensure awslogsd is running
+  service:
+    name: awslogsd
     state: started
