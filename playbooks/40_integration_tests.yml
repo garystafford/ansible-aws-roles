@@ -5,4 +5,4 @@
   gather_facts: false
 
   roles:
-    - role: test_alb_webservers
+    - role: integration_tests
