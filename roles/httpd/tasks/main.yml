@@ -36,14 +36,3 @@
   service:
     name: httpd
     state: started
-
-- name: enable service awslogsd and ensure it is not masked
-  systemd:
-    name: awslogsd
-    enabled: yes
-    masked: no
-
-- name: ensure awslogsd is running
-  service:
-    name: awslogsd
-    state: started
