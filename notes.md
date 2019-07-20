@@ -67,7 +67,7 @@ aws ssm put-parameter \
 aws ssm put-parameter \
   --name /ansible_demo/instance_type \
   --type String \
-  --value "t2.micro" \
+  --value "t2.small" \
   --description "Instance type of Web Servers" \
   --overwrite
 
