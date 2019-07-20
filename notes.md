@@ -102,7 +102,7 @@ aws ssm put-parameter \
 aws ssm put-parameter \
   --name /ansible_demo/private_subnet_1_cidr \
   --type String \
-  --value "10.0.032/28" \
+  --value "10.0.0.32/28" \
   --description "Private subnet in the first AZ" \
   --overwrite
 
