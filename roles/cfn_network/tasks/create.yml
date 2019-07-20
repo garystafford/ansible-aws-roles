@@ -3,16 +3,16 @@
   cloudformation:
     stack_name: "{{ stack_name }}"
     state: present
-    region: "{{ aws_region }}"
+    region: "{{ lookup('env','AWS_REGION') }}"
     disable_rollback: false
     template_url: "{{ lookup('env','TEMPLATE_URL') }}"
     template_parameters:
-      EnvironmentName: "{{ lookup('env','ENVIRONMENT_NAME') }}"
-      VpcCIDR: "{{ vpc_cidr }}"
-      PublicSubnet1CIDR: "{{ public_subnet_1_cidr }}"
-      PublicSubnet2CIDR: "{{ public_subnet_2_cidr }}"
-      PrivateSubnet1CIDR: "{{ private_subnet_1_cidr }}"
-      PrivateSubnet2CIDR: "{{ private_subnet_2_cidr }}"
+      VpcCIDR: "{{ lookup('env','VPC_CIDR') }}"
+      PublicSubnet1CIDR: "{{ lookup('env','PUBLIC_SUBNET_1_CIDR') }}"
+      PublicSubnet2CIDR: "{{ lookup('env','PUBLIC_SUBNET_2_CIDR') }}"
+      PrivateSubnet1CIDR: "{{ lookup('env','PRIVATE_SUBNET_1_CIDR') }}"
+      PrivateSubnet2CIDR: "{{ lookup('env','PRIVATE_SUBNET_2_CIDR') }}"
+      TagEnv: "{{ lookup('env','TAG_ENVIRONMENT') }}"
     tags:
       Stack: "{{ stack_name }}"
 

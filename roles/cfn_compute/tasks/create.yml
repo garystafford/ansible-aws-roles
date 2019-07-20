@@ -10,17 +10,17 @@
   cloudformation:
     stack_name: "{{ stack_name }}"
     state: present
-    region: "{{ aws_region }}"
+    region: "{{ lookup('env','AWS_REGION') }}"
     disable_rollback: false
     template_url: "{{ lookup('env','TEMPLATE_URL') }}"
     template_parameters:
       VpcId: "{{ network_output.VPC }}"
       Subnets: "{{ network_output.PublicSubnets }}"
-      InstanceType: "{{ instance_type }}"
-      KeyName: "{{ key_name }}"
-      SSHLocation: "{{ ssh_location }}"
-      TagName: "{{ tag_name }}"
-      TagGroup: "{{ tag_group }}"
-      TagEnv: "{{ lookup('env','ENVIRONMENT_NAME') }}"
+      InstanceType: "{{  lookup('env','INSTANCE_TYPE') }}"
+      KeyName: "{{  lookup('env','KEY_NAME') }}"
+      SSHLocation: "{{ lookup('env','SSH_LOCATION') }}"
+      TagName: "{{  lookup('env','TAG_NAME') }}"
+      TagGroup: "{{  lookup('env','TAG_GROUP') }}"
+      TagEnv: "{{ lookup('env','TAG_ENVIRONMENT') }}"
     tags:
       Stack: "{{ stack_name }}"

@@ -3,9 +3,14 @@ version: 0.2
 env:
   variables:
     TEMPLATE_URL: "https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/compute-stack.template"
-    ENVIRONMENT_NAME: "ansible-cfn-demo"
-#  parameter-store:
-#    ANSIBLE_PRIVATE_KEY: "/ansible_demo/ansible_private_key"
+    AWS_REGION: 'us-east-1'
+    TAG_ENVIRONMENT: "ansible-cfn-demo"
+    TAG_NAME: 'Apache Web Server'
+    TAG_GROUP: 'webservers'
+  parameter-store:
+    INSTANCE_TYPE: "/ansible_demo/instance_type"
+    SSH_LOCATION: "/ansible_demo/ssh_location"
+    KEY_NAME: "/ansible_demo/key_name"
 
 phases:
   install:
@@ -13,9 +18,6 @@ phases:
       python: 3.7
     commands:
       - pip install -r requirements.txt -q
-#      - mkdir -p ~/.ssh
-#      - echo "$ANSIBLE_PRIVATE_KEY" > ~/.ssh/ansible
-#      - chmod 600 ~/.ssh/ansible
   build:
     commands:
       - ansible-playbook -i inventories/aws_ec2.yml playbooks/20_cfn_compute.yml --tags create -vvv

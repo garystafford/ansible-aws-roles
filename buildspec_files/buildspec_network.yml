@@ -3,7 +3,14 @@ version: 0.2
 env:
   variables:
     TEMPLATE_URL: "https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/network-stack.template"
-    ENVIRONMENT_NAME: "ansible-cfn-demo"
+    AWS_REGION: 'us-east-1'
+    TAG_ENVIRONMENT: "ansible-cfn-demo"
+  parameter-store:
+    vpc_cidr: "/ansible_demo/vpc_cidr"
+    public_subnet_1_cidr: "/ansible_demo/public_subnet_1_cidr"
+    public_subnet_2_cidr: "/ansible_demo/public_subnet_2_cidr"
+    private_subnet_1_cidr: "/ansible_demo/private_subnet_1_cidr"
+    private_subnet_2_cidr: "/ansible_demo/private_subnet_2_cidr"
 
 phases:
   install:

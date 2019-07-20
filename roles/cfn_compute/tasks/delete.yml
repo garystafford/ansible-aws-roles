@@ -3,4 +3,4 @@
   cloudformation:
     stack_name: "{{ stack_name }}"
     state: absent
-    region: "{{ aws_region }}"
+    region: "{{ lookup('env','AWS_REGION') }}"
