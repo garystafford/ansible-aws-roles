@@ -2,7 +2,7 @@
 - name: Provision VPC and Subnets
   hosts: localhost
   connection: local
-  gather_facts: false
+  gather_facts: False
 
   roles:
     - role: cfn_network

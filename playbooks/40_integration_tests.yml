@@ -2,7 +2,7 @@
 - name: Test project environment and deployed applications
   hosts: localhost
   connection: local
-  gather_facts: false
+  gather_facts: False
 
   roles:
     - role: integration_tests

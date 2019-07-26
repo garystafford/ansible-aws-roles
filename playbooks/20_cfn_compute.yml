@@ -2,7 +2,7 @@
 - name: Provision EC2 instances in an ASG with a load balancer
   hosts: localhost
   connection: local
-  gather_facts: false
+  gather_facts: False
 
   roles:
     - role: cfn_compute

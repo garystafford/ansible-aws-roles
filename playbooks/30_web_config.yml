@@ -1,7 +1,7 @@
 ---
 - name: Configure Apache Web Servers
   hosts: tag_Group_webservers
-  gather_facts: no
+  gather_facts: False
   become: yes
   become_method: sudo
 
