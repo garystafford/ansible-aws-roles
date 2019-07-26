@@ -4,17 +4,17 @@
   hosts: localhost
 
   pre_tasks:
-    - name: get facts about the newly created cfn network stack
+    - name: Let facts about the newly created cfn network stack
       cloudformation_facts:
-        stack_name: ansible-cfn-demo-network
+        stack_name: "ansible-cfn-demo-network"
       register: cfn_network_stack_facts
 
     - name: List 'stack_outputs' from cached facts
       debug:
-        msg: cloudformation['ansible-cfn-demo-network'].stack_outputs
+        msg: "{{ cloudformation['ansible-cfn-demo-network'].stack_outputs }}"
 
   tasks:
-  - name: Check if the AWS Region of the VPC is lookup('env','AWS_REGION')
+  - name: Check if the AWS Region of the VPC is "{{ lookup('env','AWS_REGION') }}"
     debug:
-      msg: AWS Region is lookup('env','AWS_REGION')
+      msg: AWS Region of the VPC is "{{ lookup('env','AWS_REGION') }}"
     failed_when: cloudformation['ansible-cfn-demo-network'].stack_outputs['VpcRegion'] != lookup('env','AWS_REGION')
