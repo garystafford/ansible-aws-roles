@@ -18,3 +18,8 @@
     debug:
       msg: "AWS Region of the VPC is {{ lookup('env','AWS_REGION') }}"
     failed_when: cloudformation['ansible-cfn-demo-network'].stack_outputs['VpcRegion'] != lookup('env','AWS_REGION')
+
+  - name: Check if there are two Private Subnets
+    debug:
+      msg: There are two Private Subnets
+    failed_when: cloudformation['ansible-cfn-demo-network'].stack_outputs['PrivateSubnets'] != 2
