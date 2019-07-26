@@ -4,12 +4,17 @@
   hosts: localhost
 
   pre_tasks:
-  - name: List 'stack_outputs' from cached facts
-    debug:
-      msg: "{{ cloudformation['ansible-cfn-demo-network'].stack_outputs }}"
+    - name: get facts about the newly created cfn network stack
+      cloudformation_facts:
+        stack_name: "ansible-cfn-demo-network"
+      register: cfn_network_stack_facts
+
+    - name: List 'stack_outputs' from cached facts
+      debug:
+        msg: "{{ cloudformation['ansible-cfn-demo-network'].stack_outputs }}"
 
   tasks:
   - name: Check if the AWS Region of the VPC is "{{ lookup('env','AWS_REGION') }}"
     debug:
-      msg: Timezone is UTC
-    failed_when: cloudformation['ansible-cfn-demo-network'].stack_outputs['AWS_REGION'] != lookup('env','AWS_REGION')
+      msg: AWS Region is "{{ lookup('env','AWS_REGION') }}"
+    failed_when: cloudformation['ansible-cfn-demo-network'].stack_outputs['VpcRegion'] != lookup('env','AWS_REGION')
