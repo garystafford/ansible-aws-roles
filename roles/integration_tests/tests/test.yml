@@ -18,12 +18,12 @@
     retries: 2
     delay: 5
 
-  - name: Check if homepage contains 'Hello Ansible on AWS!' string
+  - name: Check if homepage contains 'Red Hat Ansible on AWS!' string
     uri:
       url: "{{ alb_url }}"
       return_content: true
     register: response
-    failed_when: "'Hello Ansible on AWS!' not in response.content"
+    failed_when: "'Red Hat Ansible on AWS!' not in response.content"
 
   - name: Check if /server-status page contains 'Apache Server Status' string
     uri:
