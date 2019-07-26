@@ -1,7 +1,7 @@
 ---
 - name: Test web server via ALB URL
   hosts: localhost
-  gather_facts: no
+  gather_facts: False
   roles:
     - integration_tests
 

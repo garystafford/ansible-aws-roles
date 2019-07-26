@@ -1,6 +1,6 @@
 ---
 - name: Test cfn_network Ansible role
-  gather_facts: no
+  gather_facts: False
   hosts: localhost
 
   pre_tasks:
