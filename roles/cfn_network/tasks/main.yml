@@ -6,7 +6,3 @@
 - import_tasks: delete.yml
   tags:
     - delete
-
-- import_tasks: tests/test.yml
-  tags:
-    - test
