@@ -3,7 +3,13 @@
   gather_facts: no
   hosts: localhost
 
-  tasks:
+  pre_tasks:
   - name: List 'stack_outputs' from cached facts
     debug:
       msg: "{{ cloudformation['ansible-cfn-demo-network'].stack_outputs }}"
+
+  tasks:
+  - name: Check if the AWS Region of the VPC is "{{ lookup('env','AWS_REGION') }}"
+    debug:
+      msg: Timezone is UTC
+    failed_when: "{{ cloudformation['ansible-cfn-demo-network'].stack_outputs['AWS_REGION'] }}" != "{{ lookup('env','AWS_REGION') }}"
