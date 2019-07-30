@@ -1,15 +1,17 @@
 #!/bin/bash
 
-# Change me!
-KEY_PATH="file:///Users/garystafford/.ssh/ansible"
+# Write Ansible demo parameters to Parameter Store
+
+# Change KEY_PATH value to match you environment!
+KEY_PATH="/Users/garystafford/.ssh/ansible"
 PARAMETER_PATH="/ansible_demo"
 
 # Put parameters
 aws ssm put-parameter \
   --name $PARAMETER_PATH/ansible_private_key \
   --type SecureString \
-  --value $KEY_PATH \
-  --description "Private key for EC2 instances" \
+  --value "file://${KEY_PATH}" \
+  --description "Ansible private key for EC2 instances" \
   --overwrite
 
 aws ssm put-parameter \
