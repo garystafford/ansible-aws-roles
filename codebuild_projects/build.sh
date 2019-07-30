@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-#set -ex
+set -e
 
-for template in ./*.json
-do
+for template in ./*.json; do
     aws codebuild create-project --cli-input-json file://${template}
 done

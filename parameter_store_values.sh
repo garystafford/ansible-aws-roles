@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Write Ansible demo parameters to Parameter Store
 
