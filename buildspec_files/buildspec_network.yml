@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    TEMPLATE_URL: "https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/network-stack.template"
+    TEMPLATE_URL: "https://s3.amazonaws.com/garystafford_cloud_formation/cf_demo/network-stack.template"
     AWS_REGION: "us-east-1"
     TAG_ENVIRONMENT: "ansible-cfn-demo"
   parameter-store:

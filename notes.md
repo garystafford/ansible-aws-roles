@@ -5,7 +5,7 @@ https://gist.github.com/ruzickap/3f795259af505ff06023b15a29ac817a
 
 ```bash
 aws cloudformation validate-template --template-body file://ansible_cf_demo.json
-aws s3 cp ansible_cf_demo.json s3://gaystafford_cloud_formation/cf_demo/
+aws s3 cp ansible_cf_demo.json s3://garystafford_cloud_formation/cf_demo/
 
 sudo cp ec2.* /etc/ansible
 chmod +x ec2.py
